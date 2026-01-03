@@ -1,0 +1,20 @@
+{
+  "name": "formulario-de-convite",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Victor Martins Dias <victormartinsjob@gmail.com> (https://github.com/VictorMartinsD)",
+  "description": "Plataforma para criação e personalização de convites digitais para eventos, com suporte a temas, gestão de informações e termos de aceite.",
+  "main": "index.html",
+  "scripts": {
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{html,css,js}": "prettier --write"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "latest"
+  }
+}
