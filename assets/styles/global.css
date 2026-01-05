@@ -31,3 +31,12 @@
   --body-sm: 600 14px var(--open-sans);
   --body-xs: 600 12px var(--open-sans);
 }
+
+/* Classe geral para todos os SVGs */
+.icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: color 0.2s ease;
+}
