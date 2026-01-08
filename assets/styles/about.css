@@ -1,0 +1,19 @@
+fieldset {
+  border: none;
+  margin-top: 2rem;
+
+  legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font: var(--heading-sm);
+    color: var(--text-heading);
+    margin-bottom: 1.5rem;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

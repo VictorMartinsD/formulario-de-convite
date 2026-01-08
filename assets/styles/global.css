@@ -34,7 +34,6 @@
   --body-xs: 600 12px var(--open-sans);
 }
 
-/* Classe geral para todos os SVGs */
 .icon {
   width: 24px;
   height: 24px;
@@ -49,3 +48,136 @@ body {
   background-color: var(--shape-body);
 }
 
+.p-aside {
+  font-weight: 300;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  .error-message {
+    visibility: hidden;
+    align-items: center;
+    color: var(--danger);
+    font: var(--body-xs);
+    margin-top: -10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--danger);
+    }
+  }
+
+  /* Lógica de exibição da mensagem de erro */
+  &:has(input:invalid:not(:placeholder-shown):not([type="datetime-local"])),
+  &:has(input[type="datetime-local"]:invalid:focus),
+  &:has(textarea:invalid:not(:placeholder-shown)) {
+    .error-message {
+      visibility: visible;
+      opacity: 1;
+      height: auto;
+    }
+  }
+
+  label {
+    font: var(--body-sm);
+    color: var(--text-body);
+    font-weight: 400;
+  }
+}
+
+input[type="text"],
+input[type="textarea"],
+input[type="email"],
+input[type="number"],
+input[type="radio"],
+input[type="datetime-local"],
+textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--input-base);
+  border: 1px solid var(--input-stroke);
+  border-radius: 8px;
+  color: var(--input-placeholder);
+  font: var(--body-md);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  outline: none;
+
+  &::placeholder {
+    color: var(--input-placeholder);
+    font-weight: 400;
+  }
+
+  &:focus {
+    border-color: var(--brand-light);
+    box-shadow: 0 0 0 2px rgba(89, 178, 255, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  /* ERRO REAL (Vermelho) - Só aparece se houver interação */
+  &:invalid:not(:placeholder-shown):not([type="datetime-local"]),
+  &[type="datetime-local"]:invalid:focus,
+  &:invalid:not(:placeholder-shown):focus {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 2px rgba(255, 89, 89, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* DATETIME - Garante que ele fique normal sem foco */
+input[type="datetime-local"]:invalid:not(:focus) {
+  border-color: var(--input-stroke);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-heading);
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-base) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input[type="datetime-local"] {
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 400;
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+}
+
+/* Para garantir que os caracteres "dd/mm/aaaa" também sigam o estilo no Chrome/Edge */
+input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper,
+input[type="datetime-local"]::-webkit-datetime-edit-text,
+input[type="datetime-local"]::-webkit-datetime-edit-month-field,
+input[type="datetime-local"]::-webkit-datetime-edit-day-field,
+input[type="datetime-local"]::-webkit-datetime-edit-year-field,
+input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+input[type="datetime-local"]::-webkit-datetime-edit-minute-field {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.flex {
+  display: flex;
+  gap: 1rem;
+}
+
+.flex-1 { flex: 1; }
+.flex-2 { flex: 2; }
+
+textarea {
+  resize: none;
+  height: 136px;
+  min-height: 136px;
+  max-height: 136px;
+  line-height: 1.5;
+}

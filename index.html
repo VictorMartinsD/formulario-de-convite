@@ -11,14 +11,12 @@
     <meta property="og:title" content="Formulário de convite" />
     <meta
       property="og:description"
-      content="Crie convites digitais personalizados para seus eventos de forma rápida. Escolha temas, cores e gere o convite perfeito."
-    />
+      content="Crie convites digitais personalizados para seus eventos de forma rápida. Escolha temas, cores e gere o convite perfeito." />
     <meta property="og:image" content="assets/img/preview.png" />
     <meta property="og:type" content="website" />
     <link
       href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Leckerli+One&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet" />
   </head>
   <body>
     <div id="app">
@@ -28,19 +26,135 @@
             <use href="assets/img/icons.svg#logo"></use>
           </svg>
           <h1>Festivite</h1>
-          <p>Crie um convite digital para o seu evento</p>
+          <p class="p-aside">Crie um convite digital para o seu evento</p>
         </header>
       </aside>
 
       <main>
         <div class="main-container">
-          <div class="about"></div>
+          <h2>Crie seu convite</h2>
+
+          <form action="" method="post" enctype="multipart/form-data">
+            <fieldset class="event-info">
+              <legend>
+                <svg class="icon">
+                  <use href="assets/img/icons.svg#calendar"></use>
+                </svg>
+                Sobre o evento
+              </legend>
+
+              <div class="input-wrapper">
+                <label for="event-name">Título</label>
+                <input
+                  id="event-name"
+                  name="event-name"
+                  type="text"
+                  placeholder="Nome do evento"
+                  required
+                  minlength="3" />
+
+                <div class="error-message">
+                  <svg class="icon">
+                    <use href="assets/img/icons.svg#circle-alert"></use>
+                  </svg>
+                  <span>Este campo é obrigatório</span>
+                </div>
+              </div>
+
+              <div class="input-wrapper">
+                <div class="flex">
+                  <div class="input-wrapper flex-2">
+                    <label for="start">Início</label>
+                    <input type="datetime-local" id="start" name="start" lang="pt-BR" required />
+
+                    <div class="error-message">
+                      <svg class="icon">
+                        <use href="assets/img/icons.svg#circle-alert"></use>
+                      </svg>
+                      <span>Este campo é obrigatório</span>
+                    </div>
+                  </div>
+
+                  <div class="input-wrapper flex-1">
+                    <label for="end">Fim</label>
+                    <input type="datetime-local" id="end" name="end" lang="pt-BR" required />
+
+                    <div class="error-message">
+                      <svg class="icon">
+                        <use href="assets/img/icons.svg#circle-alert"></use>
+                      </svg>
+                      <span>Este campo é obrigatório</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex">
+                <div class="input-wrapper flex-1">
+                  <label>Tipo</label>
+                  <div class="radio-group">
+                    <label class="radio-card">
+                      <input type="radio" id="in-person" name="event-type" value="presencial" checked required />
+                      <div class="radio-content">
+                        <svg class="icon building-2">
+                          <use href="assets/img/icons.svg#building-2"></use>
+                        </svg>
+                        <span data-text="Presencial">Presencial</span>
+                      </div>
+                    </label>
+
+                    <label class="radio-card">
+                      <input type="radio" id="online" name="event-type" value="online" required />
+                      <div class="radio-content">
+                        <svg class="icon video">
+                          <use href="assets/img/icons.svg#video"></use>
+                        </svg>
+                        <span data-text="Online">Online</span>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="error-message">
+                    <svg class="icon">
+                      <use href="assets/img/icons.svg#circle-alert"></use>
+                    </svg>
+                    <span>Este campo é obrigatório</span>
+                  </div>
+                </div>
+
+                <div class="input-wrapper flex-1">
+                  <label for="place">Local</label>
+                  <input type="text" id="place" name="place" placeholder="Link ou endereço" required />
+
+                  <div class="error-message">
+                    <svg class="icon">
+                      <use href="assets/img/icons.svg#circle-alert"></use>
+                    </svg>
+                    <span>Este campo é obrigatório</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="input-wrapper">
+                <label for="description">Descrição</label>
+                <textarea
+                  id="description"
+                  name="description"
+                  placeholder="Escreva sobre os detalhes do evento"
+                  required
+                  minlength="10"></textarea>
+
+                <div class="error-message">
+                  <svg class="icon">
+                    <use href="assets/img/icons.svg#circle-alert"></use>
+                  </svg>
+                  <span>Este campo é obrigatório</span>
+                </div>
+              </div>
+            </fieldset>
+          </form>
         </div>
       </main>
     </div>
-    <header></header>
-
-    <footer></footer>
 
     <script src="assets/js/index.js"></script>
   </body>
