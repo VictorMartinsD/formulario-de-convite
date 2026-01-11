@@ -92,6 +92,7 @@ input[type="text"],
 input[type="email"],
 input[type="number"],
 input[type="datetime-local"],
+input[type="tel"],
 textarea {
   width: 100%;
   padding: 12px 16px;

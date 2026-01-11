@@ -8,7 +8,33 @@ const errorMessage = document.getElementById('error-upload');
 
 // 2. Funções Principais
 
+// Controle de mascara de telefone
+function maskPhone(value) {
+  value = value.replace(/\D/g, "");
+
+  if (value.length > 10) {
+    // Layout para Celular: (99) 99999-9999
+    return value
+      .replace(/(\d{2})(\d)/, "($1) $2")
+      .replace(/(\d{5})(\d)/, "$1-$2")
+      .replace(/(-\d{4})\d+?$/, "$1");
+  } else {
+    // Layout para Fixo: (99) 9999-9999
+    return value
+      .replace(/(\d{2})(\d)/, "($1) $2")
+      .replace(/(\d{4})(\d)/, "$1-$2")
+      .replace(/(-\d{4})\d+?$/, "$1");
+  }
+}
+
 // 3. Eventos (Clicks, Forms, etc)
+
+// Controle da mascara de telefone
+const phoneInput = document.getElementById('phone');
+
+phoneInput.addEventListener('input', (e) => {
+  e.target.value = maskPhone(e.target.value);
+});
 
 // Controle do Switch de Tema
 themeToggle.addEventListener('click', () => {

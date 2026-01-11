@@ -2,12 +2,12 @@
 
 fieldset {
   border: none;
-  margin-top: 2rem;
+  margin-top: 3rem;
 
   legend {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 
     font: var(--heading-sm);
     color: var(--text-heading);
@@ -16,14 +16,21 @@ fieldset {
     .icon {
       width: 24px;
       height: 24px;
+      color: var(--input-placeholder);
     }
   }
 }
 
 fieldset.customization {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
 }
 
 legend .icon {
   color: var(--brand-light);
+}
+
+.contact {
+  p {
+    font-weight: 400;
+  }
 }
