@@ -170,6 +170,16 @@ textarea {
 }
 
 /* --- UTILITIES --- */
-.flex { display: flex; gap: 1rem; }
-.flex-1 { flex: 1; }
-.flex-2 { flex: 2; }
+.flex {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.flex-1 {
+  flex: 1 1 200px; /* O '1 1 200px' diz: cresça, encolha, mas tente não ser menor que 200px */
+}
+
+.flex-2 {
+  flex: 2 1 300px; /* Mesma lógica, mas para elementos que devem ser maiores */
+}
