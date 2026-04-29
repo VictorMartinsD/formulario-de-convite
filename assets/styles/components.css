@@ -383,6 +383,12 @@ a {
   justify-content: flex-end;
 }
 
+.button-container {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
 .button-invitation {
   width: 177px;
   height: 48px;
@@ -421,6 +427,204 @@ a {
   width: 20px;
   height: 20px;
   fill: var(--customization-white);
+  flex-shrink: 0;
+}
+
+.button-clear {
+  width: 120px;
+  height: 48px;
+  box-sizing: border-box;
+
+  background-color: var(--shape-button);
+  border: 1px solid var(--input-stroke);
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 4px 16px;
+
+  color: var(--text-body);
+  font-family: var(--open-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 100%;
+
+  transition: all 0.2s;
+
+  svg {
+    stroke: var(--text-body);
+    fill: none;
+  }
+}
+
+.button-clear:hover {
+  background-color: var(--input-base);
+  border-color: var(--brand-light);
+  color: var(--brand-light);
+
+  svg {
+    stroke: var(--brand-light);
+    fill: none;
+  }
+}
+
+.button-clear svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--text-body);
+  fill: none;
+  flex-shrink: 0;
+}
+
+/* --- MODAL STYLES --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modal-content {
+  background-color: var(--shape-surface);
+  border: 1px solid var(--input-stroke);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.modal-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--danger);
+  flex-shrink: 0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-family: var(--open-sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-heading);
+}
+
+.modal-body {
+  margin-bottom: 24px;
+}
+
+.modal-body p {
+  margin: 0;
+  font-family: var(--open-sans);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-body);
+  line-height: 1.5;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.button-cancel {
+  width: 100px;
+  height: 40px;
+  box-sizing: border-box;
+
+  background-color: var(--shape-button);
+  border: 1px solid var(--input-stroke);
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px 16px;
+
+  color: var(--text-body);
+  font-family: var(--open-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 100%;
+
+  transition: all 0.2s;
+}
+
+.button-cancel:hover {
+  background-color: var(--input-base);
+  border-color: var(--brand-light);
+  color: var(--brand-light);
+}
+
+.button-confirm {
+  width: 120px;
+  height: 40px;
+  box-sizing: border-box;
+
+  background-color: var(--danger);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 4px 16px;
+
+  color: var(--text-heading);
+  font-family: var(--open-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 100%;
+
+  transition: all 0.2s;
+}
+
+.button-confirm:hover {
+  filter: brightness(1.1);
+}
+
+.button-confirm svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--text-heading);
   flex-shrink: 0;
 }
 

@@ -510,7 +510,13 @@
               </div>
             </fieldset>
 
-            <div id="button-invitation">
+            <div id="button-invitation" class="button-container">
+              <button type="button" class="button-clear" id="clear-button">
+                <svg class="icon brush-cleaning">
+                  <use href="assets/img/icons.svg#brush-cleaning"></use>
+                </svg>
+                <span>Limpar</span>
+              </button>
               <button type="submit" class="button-invitation">
                 <svg class="icon ticket">
                   <use href="assets/img/icons.svg#ticket"></use>
@@ -521,6 +527,32 @@
           </form>
         </div>
       </main>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="clear-modal" class="modal-overlay">
+      <div class="modal-content">
+        <div class="modal-header">
+          <svg class="modal-icon">
+            <use href="assets/img/icons.svg#circle-alert"></use>
+          </svg>
+          <h3>Confirmar Limpeza</h3>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza que deseja limpar todas as informações?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="button-cancel" id="cancel-clear">
+            <span>Cancelar</span>
+          </button>
+          <button type="button" class="button-confirm" id="confirm-clear">
+            <svg class="icon trash">
+              <use href="assets/img/icons.svg#trash"></use>
+            </svg>
+            <span>Confirmar</span>
+          </button>
+        </div>
+      </div>
     </div>
 
     <script src="assets/js/index.js"></script>

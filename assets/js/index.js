@@ -6,6 +6,10 @@ const fileInput = document.getElementById('file-input');
 const fileNameDisplay = document.getElementById('file-name');
 const errorMessage = document.getElementById('error-upload');
 const form = document.querySelector('form');
+const clearButton = document.getElementById('clear-button');
+const clearModal = document.getElementById('clear-modal');
+const cancelClear = document.getElementById('cancel-clear');
+const confirmClear = document.getElementById('confirm-clear');
 
 // 2. Funções Principais
 
@@ -91,6 +95,52 @@ function loadFormData() {
 
 function clearFormData() {
   localStorage.removeItem('formularioConvite');
+}
+
+function clearAllFormFields() {
+  // Limpa todos os inputs, textareas e selects
+  form.querySelectorAll('input, textarea, select').forEach(element => {
+    if (element.type === 'radio' || element.type === 'checkbox') {
+      element.checked = false;
+      // Restaura o estado padrão dos radio buttons
+      if (element.type === 'radio' && element.id === 'in-person') {
+        element.checked = true;
+      }
+      if (element.type === 'radio' && element.name === 'main-color' && element.value === 'blue') {
+        element.checked = true;
+      }
+      if (element.type === 'radio' && element.name === 'event-theme' && element.value === 'birthday') {
+        element.checked = true;
+      }
+    } else if (element.type === 'file') {
+      element.value = '';
+      if (fileNameDisplay) {
+        fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
+        fileNameDisplay.style.color = 'var(--input-placeholder)';
+      }
+    } else {
+      element.value = '';
+    }
+  });
+
+  // Reseta o tema para o estado padrão
+  themeToggle.classList.remove('active');
+  themeText.textContent = 'Escuro';
+
+  // Limpa o localStorage
+  clearFormData();
+}
+
+function showModal() {
+  clearModal.style.display = 'flex';
+  clearModal.style.visibility = 'visible';
+  clearModal.style.opacity = '1';
+}
+
+function hideModal() {
+  clearModal.style.display = 'none';
+  clearModal.style.visibility = 'hidden';
+  clearModal.style.opacity = '0';
 }
 
 // Controle de mascara de telefone
@@ -188,5 +238,33 @@ fileInput.addEventListener('change', function() {
 
       this.value = ""; // Limpa o input para permitir tentar de novo
     }
+  }
+});
+
+// Event listeners do modal de limpeza
+clearButton.addEventListener('click', () => {
+  showModal();
+});
+
+cancelClear.addEventListener('click', () => {
+  hideModal();
+});
+
+confirmClear.addEventListener('click', () => {
+  clearAllFormFields();
+  hideModal();
+});
+
+// Fecha o modal ao clicar fora do conteúdo
+clearModal.addEventListener('click', (e) => {
+  if (e.target === clearModal) {
+    hideModal();
+  }
+});
+
+// Fecha o modal com a tecla ESC
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && clearModal.style.display === 'flex') {
+    hideModal();
   }
 });
